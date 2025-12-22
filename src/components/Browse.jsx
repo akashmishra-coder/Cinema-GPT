@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import Headers from "./Header";
 
 const Browse = () => {
   return (
-    <div>Browse</div>
-  )
-}
+    <>
+      <Headers />
+      <div className=" w-full h-screen bg-green-600">
+        <div className=" text-2xl text-center">Browse</div>
+      </div>
+    </>
+  );
+};
 
-export default Browse
+export default Browse;

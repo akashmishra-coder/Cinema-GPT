@@ -1,10 +1,17 @@
 import React, { useRef, useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { AddUser } from "../utils/userSlice";
 import Header from "./Header";
 import { checkValiddate } from "../utils/validate";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [isFormSignIn, setisFormSignIn] = useState(false);
   const [message, setmessage] = useState(null);
 
@@ -12,10 +19,12 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
 
+  // Toggle between Sign In and Sign Up forms
   const toggleLoginForm = () => {
     setisFormSignIn(!isFormSignIn);
   };
 
+  // Handle form submission for Sign In and Sign Up
   const handleButtonClick = () => {
     // Implement form submission logic here
 
@@ -36,14 +45,47 @@ const Login = () => {
         password.current?.value
       )
         .then((userCredential) => {
+          updateProfile(auth.currentUser, {
+            displayName: name.current?.value,
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
+          })
+            .then(() => {
+              // Profile updated!
+              const { uid, email, displayName } = auth.currentUser;
+              dispatch(AddUser({ uid: uid, email: email, name: displayName }));
+
+              setmessage("Sign Up Successful. Please Login.");
+            })
+            .catch((error) => {
+              // An error occurred
+              setmessage("Profile update failed: " + error.message);
+            });
+
           const user = userCredential.user;
-          console.log(user); //object with user details
-          setmessage("Sign Up Successful. Please Login.");
+         
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setmessage(errorCode + "-" + errorMessage);
+        });
+    } else {
+      // Sign in logic can be implemented here
+      signInWithEmailAndPassword(
+        auth,
+        email.current?.value,
+        password.current?.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          setmessage("Login Successful");
+        })
+        .catch((error) => {
+          setmessage("*User not found, Please sign up first");
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode + "-" + errorMessage);
         });
     }
   };
