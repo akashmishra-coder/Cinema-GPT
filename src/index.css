@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+@import "tailwindcss";
+
+
+@theme {
+  --chewy-regular :"Chewy", system-ui;
+
+}
+
+.bg-img {
+  height: 100vh;
+  padding: 10px;
+  /* background-image: url("/src/assets/bg-img.png"); */
+  background-image: url('https://img.freepik.com/premium-photo/tractions-3_967420-2.jpg?ga=GA1.1.472610087.1762440188&semt=ais_user_personalization&w=740&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
