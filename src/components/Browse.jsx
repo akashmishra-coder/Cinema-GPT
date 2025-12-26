@@ -12,7 +12,7 @@ const Browse = () => {
   if (!movies) return null;
 
   // console.log(movies[0]);
-  const mainMovie = movies[1];
+  const mainMovie = movies[2];
 
   const {original_title, overview, backdrop_path} = mainMovie;
   
