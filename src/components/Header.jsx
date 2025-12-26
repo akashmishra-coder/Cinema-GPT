@@ -45,9 +45,9 @@ const Header = () => {
   };
 
   return (
-    <div className=" w-full  px-10 flex items-center justify-between h-20 text-black">
-      <div className=" flex items-center  ">
-        <img src={logo_Url} alt="logo-image" className=" w-20 " />
+    <div className=" w-full  px-10 flex items-center justify-between h-20 text-black absolute z-50 bg-linear-to-t from-black">
+      <div className=" flex items-center">
+        <img src={logo_Url} alt="logo-image" className=" w-15 " />
         <p className=" text-shadow-2xs text-shadow-white ml-2 text-5xl text-red-500  font-(family-name:--chewy-regular)">
           Cinema Gpt
         </p>
@@ -55,7 +55,7 @@ const Header = () => {
 
       {user && (
         <div className=" flex gap-2 mr-2 p-2 border-black rounded-full items-center ">
-          <img src={User_Icon} alt="user-icon" className=" w-15" />
+          <img src={User_Icon} alt="user-icon" className=" w-10" />
           <button
             onMouseEnter={() => handleMouseEnter()}
             onMouseLeave={() => handleMouseLeave()}
