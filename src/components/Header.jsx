@@ -44,16 +44,16 @@ const Header = () => {
   };
 
   return (
-    <div className=" w-full  px-10 flex items-center justify-between h-20 text-black absolute z-50 bg-linear-to-t from-black">
+    <div className=" w-screen px-10 flex items-center justify-between h-20 text-black absolute top-0 left-0 z-30 bg-linear-to-b from-black">
       <div className=" flex items-center">
         <img src={logo_Url} alt="logo-image" className=" w-15 " />
-        <p className=" text-shadow-2xs text-shadow-white ml-2 text-5xl text-red-500  font-(family-name:--chewy-regular)">
+        <p className=" text-shadow-2xs text-shadow-white pl-2 text-5xl text-red-500  font-(family-name:--chewy-regular)">
           Cinema Gpt
         </p>
       </div>
 
       {user && (
-        <div className=" flex gap-2 mr-2 p-2 border-black rounded-full items-center ">
+        <div className=" flex gap-2 pr-2 px-2 border-black rounded-full items-center ">
           <img src={User_Icon} alt="user-icon" className=" w-10" />
           <button
             onMouseEnter={() => handleMouseEnter()}

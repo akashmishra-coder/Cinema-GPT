@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const [isFormSignIn, setisFormSignIn] = useState(false);
+  const [isFormSignIn, setisFormSignIn] = useState(true);
   const [message, setmessage] = useState(null);
 
   const name = useRef(null);
@@ -84,8 +84,8 @@ const Login = () => {
         .catch((error) => {
           setmessage("*User not found, Please sign up first");
           const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode + "-" + errorMessage);
+          const errorMessage = error.message
+          // console.log(errorCode + "-" + errorMessage);
         });
     }
   };
@@ -95,7 +95,7 @@ const Login = () => {
       <Header />
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" mt-10 w-3/12 p-10 pt-10 pb-30 m-auto gap-5 rounded-2xl bg-black text-white flex flex-col "
+        className=" mt-35 w-3/12 p-10 pt-10 pb-30 m-auto gap-5 rounded-2xl bg-black text-white flex flex-col "
       >
         <h2 className=" text-2xl font-bold mb-3">
           {isFormSignIn ? "Login" : "Sign Up"}

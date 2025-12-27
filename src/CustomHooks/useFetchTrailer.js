@@ -9,7 +9,7 @@ function useFetchTrailer(id) {
   const getTrailer = async () => {
     const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     
 
     const filtered = json.results.filter((video) => video.type === "Trailer");
