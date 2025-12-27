@@ -7,6 +7,14 @@
 
 }
 
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+
 .bg-img {
   height: 100vh;
   padding: 10px;

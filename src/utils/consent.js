@@ -10,6 +10,9 @@ export const options = {
   }
 };
 
-export const url = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+export const Now_Playing_Movie_url = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+export const Populer_Movie_url ='https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
+export const Top_rated_Movie_url = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+export const Upcoming_Movie_url = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
 
 export const POSTER_CDN_URL = 'https://image.tmdb.org/t/p/w500' ;
