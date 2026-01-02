@@ -91,9 +91,10 @@ const Login = () => {
   return (
     <div className="bg-linear-to-l h-screen w-screen flex items-center justify-center bg-img ">
       <Header />
+      <div className=" w-screen h-screen absolute bg-linear-to-t from-blue-400 opacity-50 blur-xl z-10"></div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" mt-35 mx-5 md:w-3/12 p-10 pt-10 md:pb-30 md:m-auto gap-5 rounded-2xl bg-black text-white flex flex-col "
+        className=" md:mt-25 w-8/12 md:w-3/12 p-7 md:p-10 md:pb-20 md:m-auto gap-5 border-2 z-10 rounded-2xl shadow-2xl text-white flex flex-col "
       >
         <h2 className=" text-2xl font-bold mb-3">
           {isFormSignIn ? "Login" : "Sign Up"}
@@ -121,7 +122,7 @@ const Login = () => {
         <p className=" font-semibold text-red-600">{message}</p>
         <button
           onClick={handleButtonClick}
-          className=" mt-4 bg-red-600 text-white py-2 px-4 rounded-md cursor-pointer hover:bg-red-700"
+          className=" md:mt-4 bg-red-600 text-white py-2 px-4 rounded-md cursor-pointer hover:bg-red-700"
         >
           {isFormSignIn ? "Login" : "Sign Up"}
         </button>

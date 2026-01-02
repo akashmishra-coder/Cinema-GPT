@@ -55,15 +55,15 @@ const Header = () => {
   return (
     <div className=" w-screen px-4 md:px-10 flex items-center justify-between h-20 text-black absolute top-0 left-0 z-30 bg-linear-to-b from-black">
       <div className=" flex items-center">
-        <img src={logo_Url} alt="logo-image" className=" w-9 md:w-12 " />
-        <p className=" text-shadow-2xs text-shadow-white pl-1 text-2xl md:text-4xl text-red-500 font-(family-name:--chewy-regular)">
+        <img src={logo_Url} alt="logo-image" className=" w-10 md:w-12 " />
+        <p className=" text-shadow-2xs text-shadow-white pl-1 text-3xl md:text-4xl text-red-500 font-(family-name:--chewy-regular)">
          Cinema Gpt
         </p>
       </div>
 
       {user && (
         <div className=" flex gap-2 pr-2 px-2 border-black rounded-full items-center ">
-          <button onClick={hnadleGptSearchView} className=" px-4 py-2 border-2 border-blue-700 bg-black text-white cursor-pointer rounded-lg hover:scale-105">{!showGptSearch ? "GPT Search" : "Homepage"}</button>
+          <button onClick={hnadleGptSearchView} className=" px-4 text-xl py-2 border-2 border-blue-700 bg-black text-white cursor-pointer rounded-lg hover:scale-105">{!showGptSearch ? "GPT Search" : "Homepage"}</button>
           <img src={User_Icon} alt="user-icon" className=" hidden md:block w-7 lg:w-10" />
           <button
             onMouseEnter={() => handleMouseEnter()}
@@ -79,7 +79,7 @@ const Header = () => {
         <div
           onMouseEnter={() => handleMouseEnter()}
           onMouseLeave={() => handleMouseLeave()}
-          className=" flex w-20 h-30 md:h-40 text-sm md:text-md bg-black text-white flex-col justify-around items-center absolute top-15 right-2 md:right-6 rounded-md cursor-pointer "
+          className=" flex w-28 h-40 text-lg md:text-md bg-black text-white flex-col justify-around items-center absolute top-15 right-2 md:right-6 rounded-md cursor-pointer "
         >
           <p>Profile</p>
           <p>about us</p>
