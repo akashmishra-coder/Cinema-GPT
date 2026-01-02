@@ -83,19 +83,17 @@ const Login = () => {
         })
         .catch((error) => {
           setmessage("*User not found, Please sign up first");
-          const errorCode = error.code;
-          const errorMessage = error.message
-          // console.log(errorCode + "-" + errorMessage);
+          console.log(error.code + "-" + error.message);
         });
     }
   };
 
   return (
-    <div className="bg-linear-to-l bg-img ">
+    <div className="bg-linear-to-l h-screen w-screen flex items-center justify-center bg-img ">
       <Header />
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" mt-35 w-3/12 p-10 pt-10 pb-30 m-auto gap-5 rounded-2xl bg-black text-white flex flex-col "
+        className=" mt-35 mx-5 md:w-3/12 p-10 pt-10 md:pb-30 md:m-auto gap-5 rounded-2xl bg-black text-white flex flex-col "
       >
         <h2 className=" text-2xl font-bold mb-3">
           {isFormSignIn ? "Login" : "Sign Up"}

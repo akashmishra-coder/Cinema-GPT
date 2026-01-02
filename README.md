@@ -26,6 +26,14 @@
 -update store with trailer video data
 -embedded youtube trailer video and it autoplay and mute
 -tailwind use for look awesome main container
+-build scondery container
+-Build Movie list 
+-build movie card
+-TMDB image CDN
+-Made browse page amazing with tailwindcss
+-create usePopuler custom hook and many more
+-build error page for handline path error
+-create useCheckOnlinestatus hooks 
 
 # Features
 

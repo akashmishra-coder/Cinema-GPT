@@ -5,6 +5,8 @@ import { AddUser, removeUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import {Menu} from "lucide-react";
+import { addClearGptSearchMovies, addToggleGptSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const dispatch = useDispatch(); //redux dispatch hook use for dispatching actions
@@ -43,24 +45,32 @@ const Header = () => {
     setnavSlider(false);
   };
 
+  const hnadleGptSearchView = ()=>{
+    dispatch(addToggleGptSearchView());
+    dispatch(addClearGptSearchMovies());
+  }
+
+  const showGptSearch = useSelector((store) => store.gpt.gptSearchView);
+
   return (
-    <div className=" w-screen px-10 flex items-center justify-between h-20 text-black absolute top-0 left-0 z-30 bg-linear-to-b from-black">
+    <div className=" w-screen px-4 md:px-10 flex items-center justify-between h-20 text-black absolute top-0 left-0 z-30 bg-linear-to-b from-black">
       <div className=" flex items-center">
-        <img src={logo_Url} alt="logo-image" className=" w-15 " />
-        <p className=" text-shadow-2xs text-shadow-white pl-2 text-5xl text-red-500  font-(family-name:--chewy-regular)">
-          Cinema Gpt
+        <img src={logo_Url} alt="logo-image" className=" w-9 md:w-12 " />
+        <p className=" text-shadow-2xs text-shadow-white pl-1 text-2xl md:text-4xl text-red-500 font-(family-name:--chewy-regular)">
+         Cinema Gpt
         </p>
       </div>
 
       {user && (
         <div className=" flex gap-2 pr-2 px-2 border-black rounded-full items-center ">
-          <img src={User_Icon} alt="user-icon" className=" w-10" />
+          <button onClick={hnadleGptSearchView} className=" px-4 py-2 border-2 border-blue-700 bg-black text-white cursor-pointer rounded-lg hover:scale-105">{!showGptSearch ? "GPT Search" : "Homepage"}</button>
+          <img src={User_Icon} alt="user-icon" className=" hidden md:block w-7 lg:w-10" />
           <button
             onMouseEnter={() => handleMouseEnter()}
             onMouseLeave={() => handleMouseLeave()}
-            className=" font-bold text-xl cursor-pointer bg-black text-white rounded-lg px-2 h-10 hover:bg-zinc-700"
+            className="  md:text-xl cursor-pointer border-2 border-blue-700 bg-black text-white rounded-lg px-2 h-10 hover:bg-zinc-700"
           >
-            Sign out{" "}
+            <Menu />{" "}
           </button>
         </div>
       )}
@@ -69,11 +79,11 @@ const Header = () => {
         <div
           onMouseEnter={() => handleMouseEnter()}
           onMouseLeave={() => handleMouseLeave()}
-          className=" flex w-30 h-60 bg-black text-white flex-col justify-around items-center absolute top-15 right-10 rounded-lg cursor-pointer "
+          className=" flex w-20 h-30 md:h-40 text-sm md:text-md bg-black text-white flex-col justify-around items-center absolute top-15 right-2 md:right-6 rounded-md cursor-pointer "
         >
           <p>Profile</p>
           <p>about us</p>
-          <p onClick={handleSignOut} className=" text-xl ">
+          <p onClick={handleSignOut} className="text-red-600 hover:underline">
             Sign out
           </p>
         </div>
