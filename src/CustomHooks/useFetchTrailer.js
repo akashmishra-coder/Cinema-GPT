@@ -18,8 +18,8 @@ function useFetchTrailer(id) {
   };
 
   useEffect(() => {
-    if(!trailerVideo) getTrailer();
-  }, []);
+    getTrailer();
+  }, [id]);
 
 }
 

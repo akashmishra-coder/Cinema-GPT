@@ -63,7 +63,7 @@ const Header = () => {
 
       {user && (
         <div className=" flex gap-2 pr-2 px-2 border-black rounded-full items-center ">
-          <button onClick={hnadleGptSearchView} className=" px-4 py-2 border-2 border-blue-700 bg-black text-white cursor-pointer rounded-lg hover:scale-105">{!showGptSearch ? "GPT Search" : "Homepage"}</button>
+          <button onClick={hnadleGptSearchView} className=" px-4 py-2 border-2 border-blue-700 bg-black text-white cursor-pointer rounded-lg transition active:scale-95 active:text-red-600">{!showGptSearch ? "GPT Search" : "Homepage"}</button>
           <img src={User_Icon} alt="user-icon" className=" hidden md:block w-7 lg:w-10" />
           <button
             onMouseEnter={() => handleMouseEnter()}

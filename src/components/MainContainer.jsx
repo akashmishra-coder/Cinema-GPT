@@ -10,10 +10,10 @@ function MainContainer() {
 
   return (
     <div className=" pt-12 md:pt-0 bg-black">
-      <TrailerInfo
+      {/* <TrailerInfo
         title={original_title}
         overview={overview}
-      />
+      /> */}
       <BackgroundTrailer id={mainMovie.id} />
     </div>
   );

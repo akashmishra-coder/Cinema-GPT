@@ -4,6 +4,7 @@ import Login from "./Login.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Ofline from "./Ofline.jsx";
 import useCheckOnlineStatus from "../CustomHooks/useCheckOnlineStatus.js";
+import MovieInfo from "./MovieInfo.jsx";
 
 const Body = () => {
 
@@ -18,6 +19,7 @@ const Body = () => {
       element: <Browse />,
     },
     
+        
   ]);
 
   const onlineStatus = useCheckOnlineStatus();
