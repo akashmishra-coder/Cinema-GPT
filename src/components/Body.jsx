@@ -4,7 +4,7 @@ import Login from "./Login.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Ofline from "./Ofline.jsx";
 import useCheckOnlineStatus from "../CustomHooks/useCheckOnlineStatus.js";
-import MovieInfo from "./MovieInfo.jsx";
+import SavedMovie from "./SavedMovie.jsx";
 
 const Body = () => {
 
@@ -17,6 +17,10 @@ const Body = () => {
     {
       path: "/browse",
       element: <Browse />,
+    },
+    {
+      path: "/saved",
+      element: <SavedMovie />,
     },
     
         

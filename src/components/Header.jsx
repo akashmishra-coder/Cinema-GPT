@@ -3,7 +3,7 @@ import { logo_Url, User_Icon } from "../utils/consent";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { AddUser, removeUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {Menu} from "lucide-react";
 import { addClearGptSearchMovies, addToggleGptSearchView } from "../utils/gptSlice";
@@ -56,14 +56,14 @@ const Header = () => {
     <div className=" w-screen px-4 md:px-10 flex items-center justify-between h-20 text-black absolute top-0 left-0 z-30 bg-linear-to-b from-black">
       <div className=" flex items-center">
         <img src={logo_Url} alt="logo-image" className=" w-10 md:w-12 " />
-        <p className=" text-shadow-2xs text-shadow-white pl-1 text-3xl md:text-4xl text-red-500 font-(family-name:--chewy-regular)">
+        <p className=" ext-2xl md:text-3xl text-amber-500 font-bold drop-shadow-lg">
          Cinema Gpt
         </p>
       </div>
 
       {user && (
         <div className=" flex gap-2 pr-2 px-2 border-black rounded-full items-center ">
-          <button onClick={hnadleGptSearchView} className=" px-4 py-2 border-2 border-blue-700 bg-black text-white cursor-pointer rounded-lg transition active:scale-95 active:text-red-600">{!showGptSearch ? "GPT Search" : "Homepage"}</button>
+          <button onClick={hnadleGptSearchView} className='text-xs md:text-sm px-3 md:px-6 py-2 bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 cursor-pointer text-white rounded-lg font-semibold transition duration-300 transform hover:scale-105 active:scale-95 shadow-lg'>{!showGptSearch ? "GPT Search" : "Homepage"}</button>
           <img src={User_Icon} alt="user-icon" className=" hidden md:block w-7 lg:w-10" />
           <button
             onMouseEnter={() => handleMouseEnter()}
@@ -79,10 +79,10 @@ const Header = () => {
         <div
           onMouseEnter={() => handleMouseEnter()}
           onMouseLeave={() => handleMouseLeave()}
-          className=" flex w-28 h-40 text-lg md:text-md bg-black text-white flex-col justify-around items-center absolute top-15 right-2 md:right-6 rounded-md cursor-pointer "
+          className=" flex w-28 h-40 text-lg md:text-md bg-black text-white flex-col justify-around items-center z-50 absolute top-15 right-2 md:right-6 rounded-md cursor-pointer "
         >
           <p>Profile</p>
-          <p>about us</p>
+          <Link to={"/saved"}>Saved</Link>
           <p onClick={handleSignOut} className="text-red-600 hover:underline">
             Sign out
           </p>
