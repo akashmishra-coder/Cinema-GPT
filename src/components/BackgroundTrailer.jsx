@@ -19,7 +19,7 @@ function BackgroundTrailer({id}) {
         allow="accelerometer; autoplay; encrypted-media; gyroscope; "
         referrerPolicy="strict-origin-when-cross-origin"
       ></iframe>
-      <button onClick={() => setIsmute(!ismute)} className=" rounded-full cursor-pointer p-2 z-50  bg-white absolute bottom-10 md:bottom-20 right-8 md:right-20 transition">{!ismute ? <Volume2 />:<VolumeOff />}</button>
+      <button onClick={() => setIsmute(!ismute)} className=" rounded-full cursor-pointer p-2 z-30  bg-white absolute bottom-10 md:bottom-20 right-8 md:right-20 transition">{!ismute ? <Volume2 />:<VolumeOff />}</button>
     </div>
   );
 }

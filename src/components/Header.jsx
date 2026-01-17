@@ -53,38 +53,75 @@ const Header = () => {
   const showGptSearch = useSelector((store) => store.gpt.gptSearchView);
 
   return (
-    <div className=" w-screen px-4 md:px-10 flex items-center justify-between h-20 text-black absolute top-0 left-0 z-30 bg-linear-to-b from-black">
-      <div className=" flex items-center">
-        <img src={logo_Url} alt="logo-image" className=" w-10 md:w-12 " />
-        <p className=" ext-2xl md:text-3xl text-amber-500 font-bold drop-shadow-lg">
-         Cinema Gpt
-        </p>
+    <div className="w-screen px-4 md:px-10 flex items-center justify-between h-20 absolute top-0 left-0 z-30 bg-linear-to-b from-black/90 via-black/70 to-transparent backdrop-blur-md border-b border-amber-500/10">
+      {/* Logo Section */}
+      <div className="flex items-center gap-3 group">
+        <div className="relative">
+          <img src={logo_Url} alt="logo-image" className="w-10 md:w-12 transition duration-300 group-hover:scale-110" />
+          <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition duration-300"></div>
+        </div>
+        <div>
+          <p className="text-2xl md:text-3xl text-amber-500 font-bold drop-shadow-lg">CinemaGpt</p>
+        </div>
       </div>
 
       {user && (
-        <div className=" flex gap-2 pr-2 px-2 border-black rounded-full items-center ">
-          <button onClick={hnadleGptSearchView} className='text-xs md:text-sm px-3 md:px-6 py-2 bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 cursor-pointer text-white rounded-lg font-semibold transition duration-300 transform hover:scale-105 active:scale-95 shadow-lg'>{!showGptSearch ? "GPT Search" : "Homepage"}</button>
-          <img src={User_Icon} alt="user-icon" className=" hidden md:block w-7 lg:w-10" />
+        <div className="flex gap-3 items-center">
+          {/* GPT Search Button */}
+          <button 
+            onClick={hnadleGptSearchView} 
+            className=' text-xs md:text-md px-4 md:px-6 py-2 bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold transition duration-300 cursor-pointer transform hover:scale-105 active:scale-95 shadow-lg '
+          >
+            {!showGptSearch ? " GPT Search" : " Homepage"}
+          </button>
+
+          {/* User Icon */}
+          <div className="hidden md:flex items-center">
+            <img 
+              src={User_Icon} 
+              alt="user-icon" 
+              className="w-8 lg:w-10 rounded-full border-2 border-amber-500/30 p-1 hover:border-amber-500 transition duration-300" 
+            />
+          </div>
+
+          {/* Menu Button */}
           <button
             onMouseEnter={() => handleMouseEnter()}
             onMouseLeave={() => handleMouseLeave()}
-            className="  md:text-xl cursor-pointer border-2 border-blue-700 bg-black text-white rounded-lg px-2 h-10 hover:bg-zinc-700"
+            className="cursor-pointer border-2 border-amber-500/40 bg-black/50 hover:bg-amber-500/20 text-white rounded-lg px-3 h-10 flex items-center justify-center transition duration-300 hover:border-amber-500"
           >
-            <Menu />{" "}
+            <Menu size={20} />
           </button>
         </div>
       )}
 
+      {/* Dropdown Menu */}
       {navSlider && (
         <div
           onMouseEnter={() => handleMouseEnter()}
           onMouseLeave={() => handleMouseLeave()}
-          className=" flex w-28 h-40 text-lg md:text-md bg-black text-white flex-col justify-around items-center z-50 absolute top-15 right-2 md:right-6 rounded-md cursor-pointer "
+          className="absolute top-15 z-50 right-4 md:right-10 w-48 bg-linear-to-b from-black/95 to-gray-900/95 backdrop-blur-md text-white rounded-xl shadow-2xl border border-amber-500/20 overflow-hidden animate-in fade-in slide-in-from-top-2"
         >
-          <p>Profile</p>
-          <Link to={"/saved"}>Saved</Link>
-          <p onClick={handleSignOut} className="text-red-600 hover:underline">
-            Sign out
+          {/* Profile Option */}
+          <div className="px-4 py-3 border-b border-amber-500/10 hover:bg-amber-500/10 transition duration-200 cursor-pointer">
+            <p className="font-semibold text-amber-400">Profile</p>
+            <p className="text-xs text-gray-400">{user?.email}</p>
+          </div>
+
+          {/* Saved Option */}
+          <Link 
+            to={"/saved"} 
+            className="block px-4 py-3 border-b border-amber-500/10 hover:bg-amber-500/10 transition duration-200 font-semibold text-white"
+          >
+            ⭐ Saved Movies
+          </Link>
+
+          {/* Sign Out Option */}
+          <p 
+            onClick={handleSignOut} 
+            className="px-4 py-3 hover:bg-red-600/20 transition duration-200 text-red-400 font-semibold cursor-pointer"
+          >
+            🚪 Sign out
           </p>
         </div>
       )}
